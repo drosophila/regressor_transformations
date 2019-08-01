@@ -18,6 +18,9 @@ layout_obj =\
              style={"marginTop": 25,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"}),
     html.Div(id = 'statsmodels',
              style={"marginTop": 15,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"}),
+    #html.Div(id = "bare_formula",
+    #         style={"marginTop": 15,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"})
+    #          ,
     html.Div(id = "inputs",
              children = "Select inputs or intercept only model",
              style={"marginTop": 25,"marginBottom": 10,"fontSize": 20, "font-family":"Roboto Mono"}),
@@ -104,9 +107,9 @@ layout_obj =\
                           "font-family": "Arial Narrow",
                           }), #from here
                   html.Div([
-                    html.Div([dcc.Graph(id = "residvsfttd")],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
+                    html.Div([dcc.Graph(id = "residvsfttd", config={"displayModeBar": False})],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
                     html.Div([],style = {"width"  : '10%','display': 'inline-block','position': 'relative'}),
-                    html.Div([dcc.Graph(id = "residsonly"),],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
+                    html.Div([dcc.Graph(id = "residsonly", config={"displayModeBar": False}),],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
                     ]),
                   #to here
                 ], style = {"width"  : '48%','display': 'inline-block','position': 'relative'}),
@@ -126,9 +129,9 @@ layout_obj =\
                           "font-family": "Arial Narrow",
                           }),
                   html.Div([
-                    html.Div([dcc.Graph(id = "residvsfttd_n")],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
+                    html.Div([dcc.Graph(id = "residvsfttd_bare", config={"displayModeBar": False})],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
                     html.Div([],style = {"width"  : '10%','display': 'inline-block','position': 'relative'}),
-                    html.Div([dcc.Graph(id = "residsonly_n"),],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
+                    html.Div([dcc.Graph(id = "residsonly_bare", config={"displayModeBar": False}),],style = {"width"  : '45%','display': 'inline-block','position': 'relative'}),
                     ]),
                 ], style = {"width"  : '48%','display': 'inline-block','position': 'relative'})
               ]), #branch2 end

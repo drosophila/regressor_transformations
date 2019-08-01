@@ -25,7 +25,6 @@ layout = layout_obj
 app = dash.Dash()
 app.layout = layout
 
-
 @app.callback(
     Output("formula","children"),
     [Input("select_inputs",   "values"),
@@ -62,6 +61,23 @@ def update_formula(*sdv):
 
   return "Statsmodels formula: {}".format(frmla)
 
+#@app.callback(
+#    Output("bare_formula","children"),
+#    [Input("select_inputs",   "values"),
+#     Input("murder_radio",    "value"),
+#     Input("population_radio","value"),
+#     Input("income_radio",    "value"),
+#     Input("illiteracy_radio","value"),
+#     Input("life_exp_radio",  "value"),
+#     Input("hs_grad_radio",   "value"),
+#     Input("frost_radio",     "value"),
+#     Input("area_radio",      "value")]
+#     )
+#def update_formula(*sdv):
+#  sdv[0].insert(0, "Murder")
+#  _,_,frmla = formula_builder(sdv)
+
+  return "Bare formula: {}".format(frmla)
 
 @app.callback(
     Output("html_table_1","children"),
@@ -126,15 +142,13 @@ def residvsfttd(*sdv):
   residvsfttd =  go.Scatter({ "y": resids,
                               "x": ftd,
                               "mode": "markers",
-                              #"line": {"color": "#8c8c8c", "dash": "dash", "width": 1},
-                              #"name": "Residuals vs fitted-values",
                               "hoverinfo": "skip"})
 
   plot_layout = {'title': "Residuals vs fitted-values",
                  'xaxis': {"title": "fitted-values"},
                  'yaxis': {"title": "residuals"},
-                 'height': '400',
-                 'width' : '400'
+                 'height': '500',
+                 'width' : '500'
                  }
 
   return {"data": [residvsfttd], "layout": plot_layout}
@@ -157,8 +171,8 @@ def residsonly(*sdv):
   lmod = smf.ols(formula = formula_, data = df)
   results = lmod.fit()
   resids = results.resid
+  np.random.seed(45)
   norm = np.random.normal(np.mean(resids), np.std(resids), len(resids))
-  #x_axis = np.linspace(0, len(resids), num = len(resids))
   x_axis = np.arange(0,len(resids))
   residsonly =  go.Scatter({ "y": resids,
                               "x": x_axis,
@@ -168,19 +182,19 @@ def residsonly(*sdv):
   norms =  go.Scatter({       "y": norm,
                               "x": x_axis,
                               "mode": "markers",
-                              "marker": {"color": "#ffb3ff"},
+                              "marker": {"color": "#C8C8C8"},
                               "hoverinfo": "skip"})
   plot_layout = {'title': "Residuals",
                  'xaxis': {"title": "observations"},
                  'yaxis': {"title": "residuals"},
-                 'height': '400',
-                 'width' : '400'
+                 'height': '500',
+                 'width' : '500'
                  }
 
   return {"data": [residsonly, norms], "layout": plot_layout}
 
 @app.callback(
-    Output("residvsfttd_n","figure"),
+    Output("residvsfttd_bare","figure"),
     [Input("select_inputs",   "values"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
@@ -205,21 +219,19 @@ def residvsfttd(*sdv):
   residvsfttd =  go.Scatter({ "y": resids,
                               "x": ftd,
                               "mode": "markers",
-                              #"line": {"color": "#8c8c8c", "dash": "dash", "width": 1},
-                              #"name": "Residuals vs fitted-values",
                               "hoverinfo": "skip"})
 
   plot_layout = {'title': "Residuals vs fitted-values",
                  'xaxis': {"title": "fitted-values"},
                  'yaxis': {"title": "residuals"},
-                 'height': '400',
-                 'width' : '400'
+                 'height': '500',
+                 'width' : '500'
                  }
 
   return {"data": [residvsfttd], "layout": plot_layout}
 
 @app.callback(
-    Output("residsonly_n","figure"),
+    Output("residsonly_bare","figure"),
     [Input("select_inputs",   "values"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
@@ -236,8 +248,8 @@ def residsonly(*sdv):
   lmod = smf.ols(formula = formula_, data = df)
   results = lmod.fit()
   resids = results.resid
-  norm = np.random.normal(np.mean(resids), np.std(resids), len(resids))
-  #x_axis = np.linspace(0, len(resids), num = len(resids))
+  np.random.seed(45)
+  norm = np.random.normal(np.mean(resids), np.std(resids), 3*len(resids))
   x_axis = np.arange(0,len(resids))
   residsonly =  go.Scatter({ "y": resids,
                               "x": x_axis,
@@ -247,13 +259,13 @@ def residsonly(*sdv):
   norms =  go.Scatter({       "y": norm,
                               "x": x_axis,
                               "mode": "markers",
-                              "marker": {"color": "#ffb3ff"},
+                              "marker": {"color": "#C8C8C8"},
                               "hoverinfo": "skip"})
   plot_layout = {'title': "Residuals",
                  'xaxis': {"title": "observations"},
                  'yaxis': {"title": "residuals"},
-                 'height': '400',
-                 'width' : '400'
+                 'height': '500',
+                 'width' : '500'
                  }
 
   return {"data": [residsonly, norms], "layout": plot_layout}
