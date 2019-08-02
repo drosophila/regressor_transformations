@@ -13,27 +13,27 @@ avail_tsfm = ["native", "x^2", "x^3", "log(x)", "e^x", "sq.rt"]
 layout_obj =\
   html.Div([ #master
     html.H2(children = "Regression",
-        style={"marginTop": 25,"marginBottom": 10, "font-family":"Roboto Mono"}),
+        style={"marginTop": 25,"marginBottom": 10}),
     html.Div(id = 'formula',
-             style={"marginTop": 25,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"}),
+             style={"marginTop": 25,"marginBottom": 10,"fontSize": 14}),
     html.Div(id = 'statsmodels',
-             style={"marginTop": 15,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"}),
+             style={"marginTop": 15,"marginBottom": 10,"fontSize": 14}),
     #html.Div(id = "bare_formula",
-    #         style={"marginTop": 15,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"})
+    #         style={"marginTop": 15,"marginBottom": 10,"fontSize": 14})
     #          ,
     html.Div(id = "inputs",
              children = "Select inputs or intercept only model",
-             style={"marginTop": 25,"marginBottom": 10,"fontSize": 20, "font-family":"Roboto Mono"}),
+             style={"marginTop": 25,"marginBottom": 10,"fontSize": 20}),
     html.Div([ #branch1
                   html.Div([
                       html.Div(id = "output",
                               children = "Murder",
-                              style={"marginLeft": 20,"marginTop": 25,"marginBottom": 0,"fontSize": 14, "font-family":"Roboto Mono"}
+                              style={"marginLeft": 20,"marginTop": 25,"marginBottom": 0,"fontSize": 14}
                               ),
                       dcc.Checklist(id = "select_inputs",
                                    options = [{"label": i,"value": i} for i in x_col],
                                    values = ["Population"],
-                                   style={"marginTop": 0,"marginBottom": 10,"fontSize": 14, "font-family":"Roboto Mono"},
+                                   style={"marginTop": 0,"marginBottom": 10,"fontSize": 14},
                                    labelStyle = {"display": "list-item", "textAligh": "left"}
                                    )
 
@@ -46,49 +46,49 @@ layout_obj =\
                       dcc.RadioItems(id = "murder_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "population_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native",
                                     ),
                       dcc.RadioItems(id = "income_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "illiteracy_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "life_exp_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "hs_grad_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "frost_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       dcc.RadioItems(id = "area_radio",
                                     options = [{"label": i,"value": i} for i in avail_tsfm],
                                     labelStyle = {"display": "inline-block"},
-                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12, "font-family":"Roboto Mono"},
+                                    style={"marginTop": 1,"marginBottom": 1,"fontSize": 12},
                                     value = "native"
                                     ),
                       ], style = {"width"  : '50%','display': 'inline-block','position': 'relative'}),
@@ -137,10 +137,10 @@ layout_obj =\
               ]), #branch2 end
 
     html.Div(id = "diags",
-             style={"marginLeft": 20,"marginTop": 25,"marginBottom": 0,"fontSize": 14, "font-family":"Roboto Mono"}),
+             style={"marginLeft": 20,"marginTop": 25,"marginBottom": 0,"fontSize": 14}),
     #dcc.Graph(id = "residvsfttd"),
     #dcc.Graph(id = "residsonly"),
     html.Div(id = "space",
-            style={"marginTop": 25,"marginBottom": 150,"fontSize": 20, "font-family":"Roboto Mono"})
+            style={"marginTop": 25,"marginBottom": 150,"fontSize": 20})
 
 ])
