@@ -32,7 +32,7 @@ layout_obj =\
                               ),
                       dcc.Checklist(id = "select_inputs",
                                    options = [{"label": i,"value": i} for i in x_col],
-                                   values = ["Population"],
+                                   value = ["Population"],
                                    style={"marginTop": 0,"marginBottom": 10,"fontSize": 14},
                                    labelStyle = {"display": "list-item", "textAligh": "left"}
                                    )

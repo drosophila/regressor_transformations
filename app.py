@@ -27,7 +27,7 @@ app.layout = layout
 
 @app.callback(
     Output("formula","children"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -45,7 +45,7 @@ def update_formula(*sdv):
 
 @app.callback(
     Output("statsmodels","children"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -63,7 +63,7 @@ def update_formula(*sdv):
 
 #@app.callback(
 #    Output("bare_formula","children"),
-#    [Input("select_inputs",   "values"),
+#    [Input("select_inputs",   "value"),
 #     Input("murder_radio",    "value"),
 #     Input("population_radio","value"),
 #     Input("income_radio",    "value"),
@@ -81,7 +81,7 @@ def update_formula(*sdv):
 
 @app.callback(
     Output("html_table_1","children"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -101,7 +101,7 @@ def html_table_update(*sdv):
 
 @app.callback(
     Output("html_table_2","children"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -122,7 +122,7 @@ def html_table_update(*sdv):
 
 @app.callback(
     Output("residvsfttd","figure"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -155,7 +155,7 @@ def residvsfttd(*sdv):
 
 @app.callback(
     Output("residsonly","figure"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -195,7 +195,7 @@ def residsonly(*sdv):
 
 @app.callback(
     Output("residvsfttd_bare","figure"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
@@ -232,7 +232,7 @@ def residvsfttd(*sdv):
 
 @app.callback(
     Output("residsonly_bare","figure"),
-    [Input("select_inputs",   "values"),
+    [Input("select_inputs",   "value"),
      Input("murder_radio",    "value"),
      Input("population_radio","value"),
      Input("income_radio",    "value"),
